@@ -4,7 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building..'
+                bat 'ng b'
+                bat 'docker build -t hello-world'
+                bat 'docker run -p 4200:8090 hello-world'
             }
         }
         stage('Test') {
