@@ -4,6 +4,7 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                bat 'npm install'
                 bat 'ng b'
                 bat 'docker build -t hello-world'
                 bat 'docker run -p 4200:8090 hello-world'
